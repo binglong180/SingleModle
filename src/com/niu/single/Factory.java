@@ -25,7 +25,8 @@ public class Factory {
 	}
 
 	// 3、提供一个公有的访问接口
-	public static Factory getFactory() {
+	//懒汉模式synchronized使用synchronized实现
+	public static synchronized Factory getFactory() {
 		if (factory == null) {
 			factory = new Factory();
 		}
