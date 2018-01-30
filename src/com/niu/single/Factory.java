@@ -4,10 +4,10 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
 
-
 public class Factory {
 	// 2、私有化对象
-	private static Factory factory;
+	// 初始化对象
+	private static Factory factory = new Factory();
 	private Properties properties;
 
 	// 1、私有化构造
@@ -25,11 +25,8 @@ public class Factory {
 	}
 
 	// 3、提供一个公有的访问接口
-	//懒汉模式synchronized使用synchronized实现
+	// 懒汉模式synchronized使用synchronized实现
 	public static synchronized Factory getFactory() {
-		if (factory == null) {
-			factory = new Factory();
-		}
 		return factory;
 	}
 
